@@ -34,7 +34,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb,amsthm}
 \usepackage{longtable,booktabs,setspace}
-\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
+\usepackage{uga} %% Useful for one reaction arrow, useless if you're not a chem major
 \usepackage[hyphens]{url}
 % Added by CII
 \usepackage{hyperref}

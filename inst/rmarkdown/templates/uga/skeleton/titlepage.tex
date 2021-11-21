@@ -1,0 +1,52 @@
+%!TEX encoding = UTF-8 Unicode
+
+\begin{titlepage}
+%
+\pdfbookmark[0]{Cover}{Cover}
+%
+\begin{otherlanguage}{french}
+
+% UGA meta data ------------------------
+
+% \Universite{}
+% \Grade{}
+\Specialite{Informatique}
+\Arrete{\printdate{$date$}}
+\Directeur{$advisor$}
+$if(altadvisor)$
+\CoDirecteur{$altadvisor$}
+$endif$
+\Laboratoire{Laboratoire d'Informatique de Grenoble}
+\EcoleDoctorale{MSTII}
+\Depot{\printdate{$depotdate$}} % XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+\makeatletter
+\Auteur{{\@author}}
+\Titre{$title$}
+\Soustitre{\foreignlanguage{english}{\@title}}
+\makeatother
+
+% UGA meta data: jury ------------------
+
+\Jury{
+    \UGTPresidente{Alice}{Professor, Grenoble University}
+
+    \UGTRapporteur{Bob}{Professor, Stanford University}
+
+    \UGTExaminatrice{Caroline}{Professor, École Normale Supérieure}
+
+    \UGTDirecteur{Dave}{Researcher, CNRS}
+
+    %\UGTCoEncadrant{Giorgio \textsc{Lucarelli}}
+    %              {Maître de conférences,
+    %              LCOMS, Université de Lorraine, Metz, France}
+
+	% \UGTInvite{}{}  % guest
+}
+
+\Sethpageshift{0pt}  % adjust horizontal position
+\Setvpageshift{100pt}  % adjust vertical position
+\MakeUGthesePDG  % actually generate the title page
+
+\end{otherlanguage}
+\end{titlepage}
