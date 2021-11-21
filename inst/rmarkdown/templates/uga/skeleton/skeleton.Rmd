@@ -68,33 +68,8 @@ If you receive a duplicate label error after knitting, make sure to delete the i
 -->
 
 ```{r include_packages, include=FALSE}
-# This chunk ensures that the thesisdown package is
-# installed and loaded. This thesisdown package includes
-# the template files for the thesis.
-if (!require(remotes)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    install.packages("remotes", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste('You need to run install.packages("remotes")",
-            "first in the Console.')
-    )
-  }
-}
-if (!require(thesisdown)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    remotes::install_github("ismayc/thesisdown")
-  } else {
-    stop(
-      paste(
-        "You need to run",
-        'remotes::install_github("ismayc/thesisdown")',
-        "first in the Console."
-      )
-    )
-  }
-}
-library(thesisdown)
+# library(thesisdown)
+library(tidyverse)
 # Set how wide the R output will go
 options(width = 70)
 ```
@@ -116,9 +91,6 @@ Alternatively, you can put that content in files like 00--prelim.Rmd and
 
 ```
 
-<!-- The {.unnumbered} option here means that the introduction will be 
-"Chapter 0." You can also use {-} for no numbers on chapters.
--->
 
 # Introduction {.unnumbered}
 

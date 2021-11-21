@@ -42,13 +42,13 @@
 
 % --- SPECIFIC ABBREVIATIONS MACROS -------------
 
-\input{macros.local.tex}
-\input{macros.include.tex}
+% \input{macros.local.tex}
+% \input{macros.include.tex}
 
 
-\ifwatermark
-\input{watermark}
-\fi
+% \ifwatermark
+% \input{watermark}
+% \fi
 
 % \usepackage{kpfonts}
 
@@ -249,23 +249,68 @@
 \pagenumbering{gobble}  % do not count title page
 \pagestyle{empty}  % no header nor footer
 
-\input{titlepage.tex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+\input{./template_tex_files/titlepage.tex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 
 \pagenumbering{roman}  % roman page numbering (e.g., i ii iii), reset counter
 
-\input{dedication.tex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+\pdfbookmark[0]{Dedication}{Dedication}
+%
+\null\vspace{\stretch{1}}
+%
+\begin{thesis_quotation}
+%
+\begin{flushright}
+
+$dedication$
+
+\end{flushright}
+%
+\end{thesis_quotation}
+%
+\vspace{\stretch{2}}\null
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 %
-\input{epigraph.tex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+\pdfbookmark[0]{Epigraph}{Epigraph}
+%
+\null\vspace{\stretch{1}}
+%
+\begin{otherlanguage}{french}
+%
+$epigraphe$
+%
+\end{otherlanguage}
+%
+\vspace{\stretch{2}}\null
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 
 \pagestyle{plain}  % display page number only
 
-\input{acknowledgments.tex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+\addchap[Acknowledgments]{%
+	\foreignlanguage{french}{Remerciements} {\Large (Acknowledgments)}
+}
+
+\vspace*{-5mm}
+$acknowledgements$
+
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 
-\input{abstract-front.tex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+\addchap{Abstract / \foreignlanguage{french}{Résumé}}
+
+\section*{Abstract}
+
+$abstract$
+
+\clearpage
+% -----------------------------------------------------------------------------
+
+\begin{otherlanguage}{french}
+
+\section*{Résumé}
+
+$abstract-fr$
+
+\end{otherlanguage}
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 
 \setcounter{tocdepth}{2}  % define depth of ToC
@@ -288,15 +333,16 @@
 \addtocontents{toc}{\bigskip}  % visual hint for numbering change in ToC
 
 
+$body$
 
-% main chapters go here
-\bookmarksetup{startatroot}
-\inputchapter{\includechapterintroduction}{chapter_introduction.tex}
-
-\bookmarksetup{startatroot}  % https://stackoverflow.com/questions/1483396/how-to-explicitly-end-a-part-in-latex-with-hyperref
-\addtocontents{toc}{\bigskip}
-\inputchapter{\includechapterconclusion}{chapter_conclusion.tex}
-
+% % main chapters go here
+% \bookmarksetup{startatroot}
+% \inputchapter{\includechapterintroduction}{chapter_introduction.tex}
+% 
+% \bookmarksetup{startatroot}  % https://stackoverflow.com/questions/1483396/how-to-explicitly-end-a-part-in-latex-with-hyperref
+% \addtocontents{toc}{\bigskip}
+% \inputchapter{\includechapterconclusion}{chapter_conclusion.tex}
+% 
 % --- BACK MATTER ----------------------
 
 \iftotalcompilation
@@ -360,6 +406,34 @@
 
 \cleardoubleevenpage  % ensure even page for back cover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 \input{backcover} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+
+\areaset[0pt]{\paperwidth}{\paperheight}  % hack to reset margins
+%
+\newlength{\bcmargin}\setlength{\bcmargin}{1.4cm}  % back cover margin length
+%
+\centering
+%
+\null\vspace*{\dimexpr\bcmargin-\headsep\relax}
+%
+\begin{minipage}{\dimexpr\paperwidth-\bcmargin-\bcmargin\relax}
+%
+\pdfbookmark[0]{Back Cover}{Back Cover}
+%
+\noindent{\usekomafont{section}Abstract}\par
+%
+$abstract$
+%
+\vspace{3ex}\hrule\vspace{2ex}
+%
+\begin{otherlanguage}{french}
+%
+\noindent{\usekomafont{section}Résumé}\par
+%
+$abstract-fr$
+%
+\end{otherlanguage}
+%
+\end{minipage}
 \fi
 
 % === END OF DOCUMENT =========================================================
