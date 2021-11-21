@@ -69,8 +69,7 @@
     bibsys=biber,             % citation manamgement engine
     bibfile=$bibliography$,       % bibtex file
     bibstyle=alphabetic,      % reference style
-% ]{cleanthesis}
-]
+]{cleanthesis}
 
 % In some 'online' bibtex entries, we do have a DOI, thanks to Zenodo. Here we want to display it.
 \AtEveryBibitem{%
@@ -263,14 +262,14 @@
 % \Universite{}
 % \Grade{}
 \Specialite{Informatique}
-\Arrete{\printdate{$date$}}
+\Arrete{\printdate{2016-05-25}}
 \Directeur{$advisor$}
 $if(altadvisor)$
 \CoDirecteur{$altadvisor$}
 $endif$
 \Laboratoire{Laboratoire d'Informatique de Grenoble}
 \EcoleDoctorale{MSTII}
-\Depot{\printdate{$depotdate$}} % XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+\Depot{\printdate{$date$}} % XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 \makeatletter
 \Auteur{$author$}
@@ -377,7 +376,7 @@ $abstract-fr$
 
 \tableofcontents %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
-\fi
+% \fi
 
 % --- MAIN MATTER ----------------------
 
@@ -398,19 +397,19 @@ $body$
 % 
 % --- BACK MATTER ----------------------
 
-\iftotalcompilation
+% \iftotalcompilation
 \pdfbookmark[-1]{Back Matter}{Back Matter}
 
 \pagenumbering{arabic}  % arabic page numbering (e.g., 1 2 3), reset counter
 \renewcommand*{\thepage}{A\arabic{page}}  % prepend A to appendix page number
 \pagestyle{scrheadings}  % display header and footer
 \addtocontents{toc}{\bigskip}  % visual hint for numbering change in ToC
-\fi
+% \fi
 
 \appendix
-\inputchapter{\includechapterappendix}{chapter_appendix.tex}
+% \inputchapter{\includechapterappendix}{chapter_appendix.tex}
 
-\iftotalcompilation
+% \iftotalcompilation
 \cleardoublepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 
 {
@@ -458,7 +457,7 @@ $body$
 \pagestyle{empty}  % no header nor footer
 
 \cleardoubleevenpage  % ensure even page for back cover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
-\input{backcover} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
+% \input{backcover} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  COMMENTED OUT FOR SEPARATE CHAPTER COMPILATIONS
 
 \areaset[0pt]{\paperwidth}{\paperheight}  % hack to reset margins
 %
@@ -487,7 +486,7 @@ $abstract-fr$
 \end{otherlanguage}
 %
 \end{minipage}
-\fi
+% \fi
 
 % === END OF DOCUMENT =========================================================
 
