@@ -1,9 +1,7 @@
 Package: uga_thesis_rmd
 Title: UGA-EDMSTII Thesis Template
 Version: 0.2.0.9000
-Authors@R: c(
-    person("Quentin", "Guilloteau", email = "Quentin.Guilloteau@univ-grenoble-alpes.fr", role = c("cre", "aut"))
-)
+Author: Quentin Guilloteau <Quentin.Guilloteau@univ-grenoble-alpes.fr>
 Description: RMarkdown template for UGA-EDMSTII
 Maintainer: Quentin Guilloteau <Quentin.Guilloteau@univ-grenoble-alpes.fr>
 Depends:
