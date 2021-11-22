@@ -15,6 +15,7 @@
       rmdInputs = with pkgs; [
         rstudio
         pandoc
+        rPackages.devtools
         rPackages.rmarkdown
         rPackages.markdown
         rPackages.knitr
